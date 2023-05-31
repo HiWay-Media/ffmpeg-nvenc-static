@@ -18,7 +18,7 @@ jobs:
         ffmpeg:
           [ '5.1.2', '6.0' ]
         nvenc:
-          [ '11.0', '12.0' ]
+          [ '11.0', '11.1' ]
     #
     steps:
       - name: Check-out repository
