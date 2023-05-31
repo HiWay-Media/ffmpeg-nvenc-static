@@ -34,7 +34,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         with:
          name: upload-FFmpeg-${{ matrix.ffmpeg }}-Nvenc-${{ matrix.nvenc }}
-         path: /bin/ffmpeg-${{matrix.ffmpeg}}-nvenc-${{ matrix.nvenc }}.tar
+         path: /tmp/bin/ffmpeg-${{matrix.ffmpeg}}-nvenc-${{ matrix.nvenc }}.tar
       #
       - name: Release FFmpeg ${{ matrix.ffmpeg }} Nvenc ${{ matrix.nvenc }}
         uses: softprops/action-gh-release@v1
@@ -43,7 +43,7 @@ jobs:
           body: "Release FFmpeg for 5.12, 5.1.3 & 6.0 \n Nvenc 11.0 & 11.1"
           files: |
             LICENSE
-            /bin/ffmpeg-${{matrix.ffmpeg}}-nvenc-${{ matrix.nvenc }}.tar
+            /tmp/bin/ffmpeg-${{matrix.ffmpeg}}-nvenc-${{ matrix.nvenc }}.tar
     #
   #
 #

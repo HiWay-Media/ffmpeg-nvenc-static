@@ -26,11 +26,11 @@ wget https://ffmpeg.org/releases/ffmpeg-$1.tar.xz \
  && tar -xf ffmpeg-$1.tar.xz \
  && rm ffmpeg-$1.tar.xz
 #
-mkdir -p /bin
+mkdir -p /tmp/bin
 # Configure and build ffmpeg with nvenc support
 cd ffmpeg-$1 \
  && ./configure --prefix=/usr/local \
-    --bindir="/bin" \
+    --bindir="/tmp/bin" \
     --enable-nonfree \
     --enable-nvenc \
     --enable-gpl \
@@ -52,8 +52,8 @@ cd ffmpeg-$1 \
  && make install \
  && cd ..
 #
-tar -czvf /bin/ffmpeg-${1}-nvenc-${2}.tar /bin/ffmpeg /bin/ffprobe
-ls -l /bin
+tar -czvf /tmp/bin/ffmpeg-${1}-nvenc-${2}.tar --transform='s|.*/||' /tmp/bin/ffmpeg /tmp/bin/ffprobe
+ls -l /tmp/bin
 #
 echo "Finished FFmpeg ${1} Nvenc ${2}"
 #
