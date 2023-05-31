@@ -28,23 +28,16 @@ jobs:
         run: |
           sudo sh build.sh ${{ matrix.ffmpeg}} ${{ matrix.nvenc }}
       #
-      - uses: montudor/action-zip@v1
-        with:
-          args: zip -qq -r ffmpeg-nvenc.zip /tmp/bin
-      #
-      - uses: actions/upload-artifact@v2
-        with:
-          name: Upload-FFmpeg-${{ matrix.ffmpeg }}-Nvenc-${{ matrix.nvenc }}
-          path: ffmpeg-nvenc.zip
-      #
-      #- uses: actions/upload-artifact@v3
-      #  env:
-      #    GITHUB_TOKEN: ${{ github.token }}
+      #- uses: montudor/action-zip@v1
       #  with:
-      #   name: Upload-FFmpeg-${{ matrix.ffmpeg }}-Nvenc-${{ matrix.nvenc }}
-      #   path: |
-      #    /tmp/bin/ffmpeg
-      #    /tmp/bin/ffprobe
+      #    args: zip -qq -r ffmpeg-nvenc.zip /tmp/bin
+      #
+      - uses: actions/upload-artifact@v3
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+         name: Upload-FFmpeg-${{ matrix.ffmpeg }}-Nvenc-${{ matrix.nvenc }}
+         path: /tmp/bin/ffmpeg-ffprobe.zip
     #
   #
 #

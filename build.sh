@@ -52,6 +52,7 @@ cd ffmpeg-$1 \
  && make install \
  && cd ..
 #
+tar -cvf /tmp/bin/ffmpeg-ffprobe.tar /tmp/bin/ffmpeg /tmp/bin/ffprobe
 ls -l /tmp/bin
 #
 echo "Finished FFmpeg ${1} Nvenc ${2}"
