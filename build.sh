@@ -57,7 +57,7 @@ apt-get install -y --no-install-recommends \
     lsscsi \
     # For watchfolder
     bash \
-    coreutils \
+    #coreutils \
     yad \
     findutils \
     expect \
