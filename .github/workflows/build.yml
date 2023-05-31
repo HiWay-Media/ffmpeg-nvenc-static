@@ -1,24 +1,22 @@
 name: FFmpeg Nvenc Build
-'on':
+on:
   push:
     branches:
       - master
       - main
     tags:
-      - '*'
+      - "*"
 jobs:
   build:
     runs-on: ubuntu-22.04
     permissions:
-        contents: read
-        packages: write
+      contents: read
+      packages: write
     #
     strategy:
       matrix:
-        ffmpeg:
-          [ '5.1.2', '6.0' ]
-        nvenc:
-          [ '11.0', '11.1' ]
+        ffmpeg: ["5.1.2", "6.0"]
+        nvenc: ["11.0", "11.1"]
     #
     steps:
       - name: Check-out repository
@@ -28,12 +26,25 @@ jobs:
         id: build-ffmpeg-nvenc
         shell: bash
         run: |
-            sudo sh build.sh ${{ matrix.ffmpeg}} ${{ matrix.nvenc }}
-       #
-      - uses: actions/upload-artifact@v3
+          sudo sh build.sh ${{ matrix.ffmpeg}} ${{ matrix.nvenc }}
+      #
+      - uses: montudor/action-zip@v1
         with:
-         name: Upload FFmpeg ${{ matrix.ffmpeg }} Nvenc ${{ matrix.nvenc }} 
-         path: |
-          /tmp/bin/ffmpeg
-          /tmp/bin/ffprobe
+          args: zip -qq -r ffmpeg-nvenc.zip /tmp/bin
+      #
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Upload-FFmpeg-${{ matrix.ffmpeg }}-Nvenc-${{ matrix.nvenc }}
+          path: ffmpeg-nvenc.zip
+      #
+      #- uses: actions/upload-artifact@v3
+      #  env:
+      #    GITHUB_TOKEN: ${{ github.token }}
+      #  with:
+      #   name: Upload-FFmpeg-${{ matrix.ffmpeg }}-Nvenc-${{ matrix.nvenc }}
+      #   path: |
+      #    /tmp/bin/ffmpeg
+      #    /tmp/bin/ffprobe
+    #
+  #
 #
