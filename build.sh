@@ -54,6 +54,8 @@ ls -l /usr/local/bin/
 #
 ls -l
 #
+ls -l /usr/bin/
+#
 echo "Finished FFmpeg ${1} Nvenc ${2}"
 #
 ## Runtime dependencies
