@@ -15,16 +15,15 @@ jobs:
           [ '5.1.2', '6.0' ]
         nvenc:
           [ '11', '12' ]
+    #
     steps:
       - name: Check-out repository
         uses: actions/checkout@v3
       #
       - name: Build FFmpeg ${{ matrix.ffmpeg }} Nvenc ${{ matrix.nvenc }}
         id: build-ffmpeg-nvenc
-        uses: actions/github-script@v4
-        with:
-          #ffmpeg: ${{ matrix.ffmpeg}}
-          script: |
+        shell: bash
+        run:
             sh build.sh ${{ matrix.ffmpeg}} ${{ matrix.nvenc }}
        #
     #
