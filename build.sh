@@ -52,54 +52,8 @@ cd ffmpeg-$1 \
  && make install \
  && cd ..
 #
-tar -cvf /tmp/bin/ffmpeg-ffprobe.tar /tmp/bin/ffmpeg /tmp/bin/ffprobe
+tar -czvf /tmp/bin/ffmpeg-${1}-nvenc-${2}.tar /tmp/bin/ffmpeg /tmp/bin/ffprobe
 ls -l /tmp/bin
 #
 echo "Finished FFmpeg ${1} Nvenc ${2}"
-#
-## Runtime dependencies
-#apt-get update
-#apt-get install -y --no-install-recommends \
-#    # For optical drive listing:
-#    lsscsi \
-#    # For watchfolder
-#    bash \
-#    #coreutils \
-#    #yad \
-#    #findutils \
-#    #expect \
-#    #tcl8.6 \
-#    #wget \
-#    #git
-#
-## Docker dependencies
-#apt-get install -y \
-#    libass9 \
-#    libavcodec-extra58 \
-#    libavfilter-extra7 \
-#    libavformat58 \
-#    libavutil56 \
-#    libbluray2 \
-#    libc6 \
-#    libcairo2 \
-#    libdvdnav4 \
-#    libgdk-pixbuf2.0-0 \
-#    libglib2.0-0 \
-#    libgstreamer-plugins-base1.0-0 \
-#    libgstreamer1.0-0 \
-#    libgtk-3-0 \
-#    libgudev-1.0-0 \
-#    libjansson4 \
-#    libpango-1.0-0 \
-#    libsamplerate0 \
-#    libswresample3 \
-#    libswscale5 \
-#    libtheora0 \
-#    libvorbis0a \
-#    libvorbisenc2 \
-#    libxml2 \
-#    libturbojpeg0 \
-#    libdvdread4 \
-#    libx264-155 \
-#    libx265-165 
 #
