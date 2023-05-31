@@ -1,4 +1,4 @@
-name: FFmpeg Nvenc Build
+name: FFmpeg Nvenc Build and Upload Artifacts
 on:
   push:
     branches:
@@ -28,16 +28,21 @@ jobs:
         run: |
           sudo sh build.sh ${{ matrix.ffmpeg}} ${{ matrix.nvenc }}
       #
-      #- uses: montudor/action-zip@v1
-      #  with:
-      #    args: zip -qq -r ffmpeg-nvenc.zip /tmp/bin
-      #
-      - uses: actions/upload-artifact@v3
+      - name: Upload FFmpeg ${{ matrix.ffmpeg }} Nvenc ${{ matrix.nvenc }}
+        uses: actions/upload-artifact@v3
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
-         name: Upload-FFmpeg-${{ matrix.ffmpeg }}-Nvenc-${{ matrix.nvenc }}
+         name: upload-FFmpeg-${{ matrix.ffmpeg }}-Nvenc-${{ matrix.nvenc }}
          path: /tmp/bin/ffmpeg-ffprobe.tar
+      #
+      - name: Release FFmpeg ${{ matrix.ffmpeg }} Nvenc ${{ matrix.nvenc }}
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            LICENSE
+            /tmp/bin/ffmpeg-ffprobe.tar
     #
   #
 #
