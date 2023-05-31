@@ -26,9 +26,11 @@ wget https://ffmpeg.org/releases/ffmpeg-$1.tar.xz \
  && tar -xf ffmpeg-$1.tar.xz \
  && rm ffmpeg-$1.tar.xz
 #
+mkdir -p /tmp/bin
 # Configure and build ffmpeg with nvenc support
 cd ffmpeg-$1 \
  && ./configure --prefix=/usr/local \
+    --bindir="/tmp/bin" \
     --enable-nonfree \
     --enable-nvenc \
     --enable-gpl \
@@ -49,12 +51,6 @@ cd ffmpeg-$1 \
     --extra-ldflags=-L/usr/local/cuda/lib64 \
  && make install \
  && cd ..
-#
-ls -l /usr/local/bin/
-#
-ls -l
-#
-ls -l /usr/bin/
 #
 echo "Finished FFmpeg ${1} Nvenc ${2}"
 #
