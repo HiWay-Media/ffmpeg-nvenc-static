@@ -1,0 +1,31 @@
+name: FFmpeg Nvenc Build
+'on':
+  push:
+    branches:
+      - master
+      - main
+    tags:
+      - '*'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ffmpeg:
+          [ 5.1.2', '6.0']
+        nvenc:
+          [ '11', '12' ]
+    steps:
+      - name: Check-out repository
+        uses: actions/checkout@v3
+      #
+      - name: Build FFmpeg ${{ matrix.ffmpeg }} Nvenc ${{ matrix.nvenc }}
+        id: repo
+        uses: actions/github-script@v4
+        with:
+          #ffmpeg: ${{ matrix.ffmpeg}}
+          script: |
+            sh build.sh ${{ matrix.ffmpeg}} ${{ matrix.nvenc }}
+       #
+    #
+#
