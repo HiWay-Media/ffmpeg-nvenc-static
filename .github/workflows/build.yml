@@ -30,5 +30,10 @@ jobs:
         run: |
             sudo sh build.sh ${{ matrix.ffmpeg}} ${{ matrix.nvenc }}
        #
-    #
+      - uses: actions/upload-artifact@v3
+        with:
+         name: Upload FFmpeg ${{ matrix.ffmpeg }} Nvenc ${{ matrix.nvenc }} 
+         path: |
+          /usr/local/ffmpeg
+          /usr/local/ffprobe
 #
