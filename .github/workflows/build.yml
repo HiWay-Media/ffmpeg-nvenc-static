@@ -27,8 +27,8 @@ jobs:
       - name: Build FFmpeg ${{ matrix.ffmpeg }} Nvenc ${{ matrix.nvenc }}
         id: build-ffmpeg-nvenc
         shell: bash
-        run:
-            sh build.sh ${{ matrix.ffmpeg}} ${{ matrix.nvenc }}
+        run: |
+            sudo sh build.sh ${{ matrix.ffmpeg}} ${{ matrix.nvenc }}
        #
     #
 #
