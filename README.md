@@ -6,7 +6,7 @@ ffmpeg-nvenc-static is a repository that provides a statically compiled version 
 
 ## Description
 
-This repository contains a Dockerfile and build scripts to compile FFmpeg with NVENC support statically. By using the statically compiled binary, you can easily incorporate FFmpeg with NVENC into your projects without the need for additional dependencies or runtime libraries.
+This repository contains build scripts to compile FFmpeg with NVENC support statically. By using the statically compiled binary, you can easily incorporate FFmpeg with NVENC into your projects without the need for additional dependencies or runtime libraries.
 
 ## Features
 
