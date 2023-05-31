@@ -31,10 +31,10 @@ git clone https://github.com/HiWay-Media/ffmpeg-nvenc-static.git
 
 For more detailed instructions and examples, please refer to the documentation.
 
-## Contributions
+## Contributions
 Contributions to the ffmpeg-nvenc-static repository are welcome! If you encounter any issues, have suggestions for improvements, or want to contribute enhancements, please open an issue or submit a pull request on the GitHub repository.
 
 Please follow the existing code style and provide clear descriptions and documentation for any changes or additions.
 
-## License
+## License
 ffmpeg-nvenc-static is licensed under the MIT License.
