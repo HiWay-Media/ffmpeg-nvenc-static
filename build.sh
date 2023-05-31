@@ -28,25 +28,25 @@ wget https://ffmpeg.org/releases/ffmpeg-$1.tar.xz \
 #
 # Configure and build ffmpeg with nvenc support
 cd ffmpeg-$1 \
- && ./configure --prefix=/usr/local \ 
+ && ./configure --prefix=/usr/local\
     --enable-nonfree\
-    --enable-nvenc\ 
-    --enable-gpl\ 
-    --enable-version3\ 
-    --enable-static\ 
-    --disable-debug\ 
-    --disable-ffplay\ 
-    --disable-indev=sndio\ 
-    --disable-outdev=sndio\ 
-    --cc=gcc\ 
-    --enable-fontconfig\ 
-    --enable-gray\ 
-    --enable-libmp3lame\ 
-    --enable-libopus\ 
-    --enable-libvpx\ 
-    --enable-libx264  \
-    --extra-cflags=-I/usr/local/cuda/include \
-    --extra-ldflags=-L/usr/local/cuda/lib64 \
+    --enable-nvenc\
+    --enable-gpl\
+    --enable-version3\
+    --enable-static\
+    --disable-debug\
+    --disable-ffplay\
+    --disable-indev=sndio\
+    --disable-outdev=sndio\
+    --cc=gcc\
+    --enable-fontconfig\
+    --enable-gray\
+    --enable-libmp3lame\
+    --enable-libopus\
+    --enable-libvpx\
+    --enable-libx264\
+    --extra-cflags=-I/usr/local/cuda/include\
+    --extra-ldflags=-L/usr/local/cuda/lib64\
  && make install \
  && cd ..
 #
