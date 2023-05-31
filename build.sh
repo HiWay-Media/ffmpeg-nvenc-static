@@ -51,7 +51,7 @@ cd ffmpeg-$1 \
  && cd ..
 #
 ## Runtime dependencies
-apt-get update
+#apt-get update
 apt-get install -y --no-install-recommends \
     # For optical drive listing:
     lsscsi \
