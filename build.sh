@@ -51,6 +51,7 @@ cd ffmpeg-$1 \
  && cd ..
 #
 #
+which ffmpeg 
 echo "Finished FFmpeg ${1} Nvenc ${2}"
 #
 ## Runtime dependencies

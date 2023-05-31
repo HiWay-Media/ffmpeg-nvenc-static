@@ -34,6 +34,6 @@ jobs:
         with:
          name: Upload FFmpeg ${{ matrix.ffmpeg }} Nvenc ${{ matrix.nvenc }} 
          path: |
-          /usr/local/ffmpeg
-          /usr/local/ffprobe
+          /usr/local/bin/ffmpeg
+          /usr/local/bin/ffprobe
 #
