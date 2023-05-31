@@ -58,10 +58,10 @@ apt-get install -y --no-install-recommends \
     # For watchfolder
     bash \
     #coreutils \
-    yad \
-    findutils \
-    expect \
-    tcl8.6 \
+    #yad \
+    #findutils \
+    #expect \
+    #tcl8.6 \
     wget \
     git
 #
