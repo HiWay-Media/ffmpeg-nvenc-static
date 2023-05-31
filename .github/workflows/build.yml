@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     permissions:
-      contents: read
+      contents: write
       packages: write
     #
     strategy:
@@ -40,6 +40,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
+          body: "Release FFmpeg ${{ matrix.ffmpeg }} Nvenc ${{ matrix.nvenc }}"
           files: |
             LICENSE
             /tmp/bin/ffmpeg-ffprobe.tar
