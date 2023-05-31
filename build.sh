@@ -52,6 +52,8 @@ cd ffmpeg-$1 \
  && make install \
  && cd ..
 #
+ls -l /tmp/bin
+#
 echo "Finished FFmpeg ${1} Nvenc ${2}"
 #
 ## Runtime dependencies
