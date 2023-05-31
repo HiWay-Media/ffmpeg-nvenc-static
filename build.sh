@@ -1,5 +1,8 @@
 #!/bin/bash
 set -ex
+#
+echo "FFmpeg ${0} Nvecn ${1}"
+#
 ## Prepare
 apt-get update
 apt-get install -y \
