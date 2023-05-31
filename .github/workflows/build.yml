@@ -9,12 +9,16 @@ name: FFmpeg Nvenc Build
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+        contents: read
+        packages: write
+    #
     strategy:
       matrix:
         ffmpeg:
           [ '5.1.2', '6.0' ]
         nvenc:
-          [ '11', '12' ]
+          [ '11.0', '12.0' ]
     #
     steps:
       - name: Check-out repository

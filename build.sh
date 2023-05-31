@@ -1,4 +1,5 @@
-
+#!/bin/bash
+set -ex
 ## Prepare
 apt-get update
 apt-get install -y \
@@ -12,18 +13,18 @@ apt-get install -y \
 #apt-get install -y libva-dev libdrm-dev
 #   
 #
-git clone -b sdk/11.0 https://github.com/FFmpeg/nv-codec-headers.git \
+git clone -b sdk/$1 https://github.com/FFmpeg/nv-codec-headers.git \
 	&& cd nv-codec-headers \
 	&& make \
 	&& make install
 #
 
-wget https://ffmpeg.org/releases/ffmpeg-5.1.2.tar.xz \
- && tar -xf ffmpeg-5.1.2.tar.xz \
- && rm ffmpeg-5.1.2.tar.xz
+wget https://ffmpeg.org/releases/ffmpeg-$0.tar.xz \
+ && tar -xf ffmpeg-$0.tar.xz \
+ && rm ffmpeg-$0.tar.xz
 #
 # Configure and build ffmpeg with nvenc support
-cd ffmpeg-5.1.2 \
+cd ffmpeg-$0 \
  && ./configure --prefix=/usr/local \ 
     --enable-nonfree\
     --enable-nvenc\ 
