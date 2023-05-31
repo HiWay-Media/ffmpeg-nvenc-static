@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ex
 #
-echo "FFmpeg ${1} Nvecn ${2}"
+echo "FFmpeg ${1} Nvenc ${2}"
 #
 ## Prepare
 apt-get update
@@ -11,7 +11,7 @@ apt-get install -y \
 ## Install dependencies
 apt-get install -y \
     autoconf automake build-essential cmake git libass-dev libbz2-dev libfontconfig1-dev libfreetype6-dev libfribidi-dev libharfbuzz-dev libjansson-dev liblzma-dev libmp3lame-dev libnuma-dev libogg-dev libopus-dev libsamplerate-dev libspeex-dev libtheora-dev libtool libtool-bin libturbojpeg0-dev libvorbis-dev libx264-dev libxml2-dev libvpx-dev m4 make nasm ninja-build patch pkg-config python tar zlib1g-dev autopoint imagemagick gsfonts wget
-    
+#
 ## Intel CSV dependencies
 #apt-get install -y libva-dev libdrm-dev
 #   
@@ -28,25 +28,25 @@ wget https://ffmpeg.org/releases/ffmpeg-$1.tar.xz \
 #
 # Configure and build ffmpeg with nvenc support
 cd ffmpeg-$1 \
- && ./configure --prefix=/usr/local\
-    --enable-nonfree\
-    --enable-nvenc\
-    --enable-gpl\
-    --enable-version3\
-    --enable-static\
-    --disable-debug\
-    --disable-ffplay\
-    --disable-indev=sndio\
-    --disable-outdev=sndio\
-    --cc=gcc\
-    --enable-fontconfig\
-    --enable-gray\
-    --enable-libmp3lame\
-    --enable-libopus\
-    --enable-libvpx\
-    --enable-libx264\
-    --extra-cflags=-I/usr/local/cuda/include\
-    --extra-ldflags=-L/usr/local/cuda/lib64\
+ && ./configure --prefix=/usr/local \
+    --enable-nonfree \
+    --enable-nvenc \
+    --enable-gpl \
+    --enable-version3 \
+    --enable-static \
+    --disable-debug \
+    --disable-ffplay \
+    --disable-indev=sndio \
+    --disable-outdev=sndio \
+    --cc=gcc \
+    --enable-fontconfig \
+    --enable-gray \
+    --enable-libmp3lame \
+    --enable-libopus \
+    --enable-libvpx \
+    --enable-libx264 \
+    --extra-cflags=-I/usr/local/cuda/include \
+    --extra-ldflags=-L/usr/local/cuda/lib64 \
  && make install \
  && cd ..
 #
