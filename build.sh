@@ -28,6 +28,7 @@ mkdir -p /tmp/bin
 cd ffmpeg-$1 \
  && ./configure --prefix=/usr/local \
     --bindir="/tmp/bin" \
+    --enable-filter=drawtext \
     --enable-nonfree \
     --enable-nvenc \
     --enable-gpl \
